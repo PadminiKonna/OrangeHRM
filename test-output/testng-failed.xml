@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Default test(failed)">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="com.orangehrm.listeners.TestListener"/>
+  </listeners>
+  <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="com.orangehrm.tests.LoginOrangeHRM">
+      <class name="com.orangehrm.tests.OrangeHRM_All_Modules">
         <methods>
-          <include name="addEmployeeAndEditPersonalDetails"/>
+          <include name="employeeTimesheetFlowTest"/>
           <include name="teardown"/>
           <include name="setupReport"/>
           <include name="setup"/>
           <include name="flushReport"/>
         </methods>
-      </class> <!-- com.orangehrm.tests.LoginOrangeHRM -->
+      </class> <!-- com.orangehrm.tests.OrangeHRM_All_Modules -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

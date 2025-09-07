@@ -15,11 +15,13 @@ import org.testng.annotations.Test;
 import com.orangehrm.base.BaseTest;
 import com.orangehrm.pages.LoginPageFactory;
 import com.orangehrm.pages.AdminPageFactory;
+import com.orangehrm.pages.LeavePageFactory;
 import com.orangehrm.pages.PIM_PageFactory;
+import com.orangehrm.pages.TimePageFactory;
 import com.orangehrm.utilities.ExcelUtiles;
 import com.orangehrm.utilities.Screenshot;
 
-public class LoginOrangeHRM extends BaseTest {
+public class OrangeHRM_All_Modules extends BaseTest {
 
     String loginExcel = System.getProperty("user.dir") + "\\src\\test\\resources\\Testdata\\Data.xlsx";
     String adminExcel = System.getProperty("user.dir") + "\\src\\test\\resources\\Testdata\\AdminData.xlsx";
@@ -144,6 +146,89 @@ public class LoginOrangeHRM extends BaseTest {
             throw e;
         }
     }
+    
+    @Test
+    public void employeeTimesheetFlowTest() {
+        test = extent.createTest("Employee Timesheet Flow - Create and Approve");
+
+        try {
+            driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+
+            TimePageFactory timePage = new TimePageFactory(driver);
+
+            // Login
+            timePage.login("Admin", "admin123");
+            test.pass("Logged in successfully");
+
+            // Navigate to Time
+            timePage.navigateToTimeModule();
+            test.info("Navigated to Time module");
+
+            // Search Employee and View Timesheet
+            timePage.searchEmployeeAndView("Peter Mac Anderson");
+            test.pass("Employee timesheet opened successfully");
+
+            //*/ Create Timesheet
+           /* timePage.createTimesheet();
+            test.pass("Timesheet created successfully");*/
+
+            /*// Approve Timesheet
+            timePage.submitTimesheet();
+            test.pass("Timesheet submitted successfully");
+            
+            timePage.approveTimesheet();
+            test.pass("Timesheet approved successfully");*/
+
+            // Logout
+            timePage.logout();
+            test.pass("Logout successful");
+
+        } catch (Exception e) {
+            captureFailure("EmployeeTimesheetFlow", e);
+            throw e;
+        }
+    }
+    @Test
+    public void assignLeaveFlowTest() {
+        test = extent.createTest("Assign Leave Flow Test");
+
+        try {
+            driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+
+            LeavePageFactory leavePage = new LeavePageFactory(driver);
+
+            // Login
+            leavePage.login("Admin", "admin123");
+            test.pass("Logged in successfully");
+
+            // Navigate to Assign Leave
+            leavePage.navigateToLeaveModule();
+            test.info("Navigated to Leave module");
+            leavePage.clickAssignLeave();
+            test.info("Navigated to Assign leave");
+
+            // Fill Leave Form
+            leavePage.fillAssignLeaveForm("David John Smith", "CAN - Vacation", "2025-09-10", "2025-09-11");
+            test.pass("Leave form filled successfully");
+
+            // Click Assign
+            leavePage.clickAssign();
+            test.pass("Leave assigned successfully");
+
+            // Logout
+            leavePage.logout();
+            test.pass("Logout successful");
+
+        } catch (Exception e) {
+            captureFailure("AssignLeaveFlow", e);
+            throw e;
+        }
+    }
+    
+    
+    
+    
+    
 
     // ===============================
     private void captureFailure(String testName, Throwable e) {

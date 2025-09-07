@@ -6,7 +6,7 @@
 </listeners>
   <test thread-count="5" name="Test">
     <classes>
-      <class name="com.orangehrm.tests.LoginOrangeHRM"/>
+      <class name="com.orangehrm.tests.OrangeHRM_All_Modules"/>
       
     </classes>
   </test> <!-- Test -->

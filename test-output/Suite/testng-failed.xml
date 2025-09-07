@@ -6,15 +6,15 @@
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="com.orangehrm.tests.AdminOrangeHRM">
+      <class name="com.orangehrm.tests.OrangeHRM_All_Modules">
         <methods>
+          <include name="employeeTimesheetFlowTest"/>
           <include name="teardown"/>
           <include name="setupReport"/>
           <include name="setup"/>
           <include name="flushReport"/>
-          <include name="addUserTest" invocation-numbers="0 1"/>
         </methods>
-      </class> <!-- com.orangehrm.tests.AdminOrangeHRM -->
+      </class> <!-- com.orangehrm.tests.OrangeHRM_All_Modules -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
