@@ -165,18 +165,18 @@ public class OrangeHRM_All_Modules extends BaseTest {
             test.info("Navigated to Time module");
 
             // Search Employee and View Timesheet
-            timePage.searchEmployeeAndView("Peter Mac Anderson");
+            timePage.searchEmployeeAndView("Jane Test Doe");
             test.pass("Employee timesheet opened successfully");
 
             //*/ Create Timesheet
-           /* timePage.createTimesheet();
-            test.pass("Timesheet created successfully");*/
+           /*timePage.createTimesheet();
+            test.pass("Timesheet created successfully");
 
-            /*// Approve Timesheet
+            // Approve Timesheet
             timePage.submitTimesheet();
-            test.pass("Timesheet submitted successfully");
+            test.pass("Timesheet submitted successfully");*/
             
-            timePage.approveTimesheet();
+          /* timePage.approveTimesheet();
             test.pass("Timesheet approved successfully");*/
 
             // Logout
@@ -208,7 +208,7 @@ public class OrangeHRM_All_Modules extends BaseTest {
             test.info("Navigated to Assign leave");
 
             // Fill Leave Form
-            leavePage.fillAssignLeaveForm("David John Smith", "CAN - Vacation", "2025-09-10", "2025-09-11");
+            leavePage.fillAssignLeaveForm("David John Smith", "CAN - Vacation", "2025-09-10", "2025-09-15");
             test.pass("Leave form filled successfully");
 
             // Click Assign

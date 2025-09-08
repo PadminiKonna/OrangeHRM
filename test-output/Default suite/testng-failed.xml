@@ -3,15 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.orangehrm.tests.LeaveOrangeHRM">
+      <class name="com.orangehrm.tests.OrangeHRM_All_Modules">
         <methods>
-          <include name="assignLeaveFlowTest"/>
+          <include name="employeeTimesheetFlowTest"/>
           <include name="teardown"/>
           <include name="setupReport"/>
           <include name="setup"/>
           <include name="flushReport"/>
         </methods>
-      </class> <!-- com.orangehrm.tests.LeaveOrangeHRM -->
+      </class> <!-- com.orangehrm.tests.OrangeHRM_All_Modules -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
